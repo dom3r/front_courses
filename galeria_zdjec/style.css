@@ -1,0 +1,136 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+body{
+    background: rgb(9,8,32);
+    background: linear-gradient(90deg, rgba(9,8,32,0.9699230033810399) 0%, rgba(23,23,199,1) 35%, rgba(0,224,255,1) 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    padding: 64px;
+    overflow-x: hidden;
+}
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 64px;
+    margin: 16px;
+    text-align: center;
+    
+}
+
+
+.gallery {
+    background:linear-gradient(60deg, rgba(255,255,255,0.1),rgba(255,255,255,0.5));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding: 64px;
+    border-radius: 20px;
+}
+.thumbnail {
+    border: solid 3px rgba(255,255,255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 48px 1px rgba(0,0,0, 0.5);
+    cursor: pointer;
+    margin: 16px;
+    max-width: 300px;
+    max-height: 200px;
+    transform:scale(1);
+    overflow:hidden;
+    transition: transform 0.3s;
+}
+.thumbnail:hover{
+    transform:scale(1.2);
+}
+.thumbnail img{
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+    
+}
+.thumbnail img:focus,
+.thumbmail img:focus-visible{
+    border: solid 3px rgb(70, 39, 180);
+
+}
+.popup{
+    animation: fadeIn 0.3s;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 0;    
+    position: fixed; 
+}
+.popup.fade-out{
+    animation: fadeOut 0.3s both;
+}
+
+.popup.hidden{
+    display: none;
+}
+.popup__img{
+    max-width: 80%;
+    max-height: 80%;
+}
+.popup__close{
+    background-color: transparent;
+    color: rgba(255,255,255,0.8);
+    border:none;
+    opacity: 0.5;
+    cursor:pointer;
+    font-size:64px;
+    right: 10%;
+    transition: opacity 0.3s;
+    position:fixed;
+    top: 10%;
+}
+.popup__close:hover{
+    opacity:1.5;
+}
+.popup__arrow{
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.5;
+    border: none;
+    height: 64px;
+    font-size: 64px;
+    line-height: 64px;
+    position: absolute;
+    top: 50%;
+    transition: opacity 0.3s;
+    width: 64px;
+}
+.popup__arrow:hover{
+    opacity: 1;
+}
+.popup__arrow--left{
+    left:5%;
+}
+.popup__arrow--right{
+    right:5%;
+}
+
+@keyframes fadeIn {
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes fadeOut{
+    from{opacity:1;}
+    to{opacity:0;}
+}

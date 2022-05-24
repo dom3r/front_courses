@@ -1,0 +1,22 @@
+/* html{
+    height:100%;
+}
+body{
+    height:100%;
+} */
+.first-div, .second-div{
+    height:300px;
+    width:40%;
+    padding:5px 10px 7px 10px;
+    border:solid black 5px;
+    margin:10px 5px;
+    display:inline-block;
+    /* visibility:hidden; */
+}
+/* .first-div{
+    /* visibility:hidden; */
+    /*     display:none; 
+} */
+div:last-of-type:hover{
+    color:red;
+}
