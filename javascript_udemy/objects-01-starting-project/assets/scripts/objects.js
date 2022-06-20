@@ -53,10 +53,12 @@ const renderMovies = (filter = "") => {
 
   filteredMovies.forEach(movie => {
     const movieEl = document.createElement("li");
-    let text = movie.info.title + " - "; // chaining
+    const {info, ...otherProps}= movie; // can use info instead of movie.info
+    console.log(otherProps);
+    let text = movie.getFormattedTitle() + " - "; // chaining
     for (const key in movie.info) {
-      if (key !== "title") {
-        text = text + `${key}: ${movie.info[key]}`;
+      if (key !== "title" && key !=='_title' ) {
+        text = text + `${key}: ${info[key]}`;
       }
     }
     movieEl.textContent = text;
@@ -69,17 +71,35 @@ const addMovieHandler = () => {
   const extraName = document.getElementById("extra-name").value;
   const extraValue = document.getElementById("extra-value").value;
 
-  if (title.trim() === "" || extraName.trim === "" || extraValue.trim === "") {
+  if (extraName.trim === "" || extraValue.trim === "") {
     return;
   }
 
   const newMovie = {
     info: {
-      title, // same as title : title
+      set title(val){ //setter good when wants some validation
+        if(val.trim()===''){
+          this._title = 'DEFAULT';
+          return;
+        }
+        this._title = val;
+      },
+      get title() { //getter good when want some transformations
+        return this._title;
+      },
+      //title, // same as title : title
       [extraName]: extraValue,
     },
     id: Math.random(),
+    getFormattedTitle() { // getFormattedTitle() {}
+      console.log(this);
+      return this.info.title.toUpperCase();
+    }
+
   };
+
+  newMovie.info.title = title; // trigger setter
+  console.log(newMovie.info.title); // trigger getter
 
   movies.push(newMovie);
   console.log(newMovie);
