@@ -1,4 +1,9 @@
-class ProjectItem {
+import { DOMHelper } from "../Utility/DOMHelper.js"; 
+//import { Tooltip } from "./Tooltip.js"; delete static import and make dynamic in code
+console.log('Project Item created!');
+
+
+export class ProjectItem {
     hasActiveTooltip = false;
   
     constructor(id, updateProjectListsFunction, type) {
@@ -14,16 +19,19 @@ class ProjectItem {
         return;
       }
       const projectElement = document.getElementById(this.id);
-      const tooltipText = projectElement.dataset.extraInfo;
-      const tooltip = new Tooltip(
-        () => {
-          this.hasActiveTooltip = false;
-        },
-        tooltipText,
-        this.id
-      );
-      tooltip.attach();
-      this.hasActiveTooltip = true;
+      const tooltipText = projectElement.dataset.extraInfo; // DYNAMIC IMPORT BELOW faster way for larger projects / files
+      import('./Tooltip.js').then(module=>{
+        const tooltip = new module.Tooltip(
+          () => {
+            this.hasActiveTooltip = false;
+          },
+          tooltipText,
+          this.id
+        );
+        tooltip.attach();
+        this.hasActiveTooltip = true;
+      });
+      
     }
   
     connectDrag() {

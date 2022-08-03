@@ -1,4 +1,5 @@
-class DOMHelper {
+console.log('Dom helper exectuing'); // code execute once in modules only when needed
+export class DOMHelper {
     static clearEventListeners(element) {
       const clonedElement = element.cloneNode(true);
       element.replaceWith(clonedElement);

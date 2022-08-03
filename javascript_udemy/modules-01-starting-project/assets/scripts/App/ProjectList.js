@@ -1,4 +1,10 @@
-class ProjectList {
+import { ProjectItem as PrjItem } from "./ProjectItem.js";
+import {DOMHelper} from '../Utility/DOMHelper.js';
+
+//console.log(DEFAULT_VALUE);
+
+
+export class ProjectList {
     projects = [];
   
     constructor(type) {
@@ -6,7 +12,7 @@ class ProjectList {
       const prjItems = document.querySelectorAll(`#${type}-projects li`);
       for (const prjItem of prjItems) {
         this.projects.push(
-          new ProjectItem(prjItem.id, this.switchProject.bind(this), this.type)
+          new PrjItem(prjItem.id, this.switchProject.bind(this), this.type)
         );
       }
       console.log(this.projects);
@@ -14,6 +20,7 @@ class ProjectList {
     }
   
     connectDroppable() {
+      console.log(globalThis.DEFAULT_VALUE);
       const list = document.querySelector(`#${this.type}-projects ul`);
   
       list.addEventListener('dragenter', event => {

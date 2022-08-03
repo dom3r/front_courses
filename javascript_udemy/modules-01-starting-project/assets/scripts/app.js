@@ -1,3 +1,7 @@
+import {ProjectList} from './App/ProjectList.js';
+
+//window.DEFAULT_VALUE = 'ABC'; possible to pass data globally
+globalThis.DEFAULT_VALUE = 'ABC'; // works same as window
 
 class App {
   static init() {
