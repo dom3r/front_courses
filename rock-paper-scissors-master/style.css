@@ -1,0 +1,161 @@
+:root {
+  --color-main: #fff;
+  --color-points: hsl(229, 25%, 31%);
+  --color-score: hsl(229, 64%, 46%);
+  --color-border: hsl(217, 16%, 45%);
+
+  --color-scissors: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+  --color-paper: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
+  --color-rock: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: radial-gradient(at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  font-family: "Barlow Semi Condensed", sans-serif;
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 36px;
+}
+header {
+  border: solid 2px var(--color-border);
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 12px 24px;
+}
+h1 span {
+  color: var(--color-main);
+  display: block;
+  line-height: 25px;
+}
+.score {
+  background-color: var(--color-main);
+  padding: 12px 32px;
+  border-radius: 4px;
+}
+.score span {
+  color: var(--color-score);
+}
+.points {
+  color: var(--color-points);
+  display: block;
+  font-size: 56px;
+  line-height: 48px;
+  text-align:center;
+}
+main {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 120px 0;
+}
+.options {
+  aspect-ratio: 313/278;
+  background-image: url("./images/bg-triangle.svg");
+  background-size: cover;
+  position: relative;
+  margin: 0 auto;
+  width: 50%;
+}
+.options .button {
+  position: absolute;
+  width: 50%;
+  cursor: pointer;
+}
+.button{
+    aspect-ratio: 1/1;
+    align-items: center;
+    border: none;
+    box-shadow: inset 0px -6px 0px rgba(0,0,0,0.15);
+    border-radius: 50%;
+   
+    display:flex;
+    justify-content: center;
+}
+.button img{
+    width:50%;
+}
+
+.button__image-container{
+    background-color: var(--color-main);
+    border-radius: 50%;
+    display:flex;
+    box-shadow: inset 0px 6px 0px rgba(0,0,0,0.15);
+    justify-content: center;
+    align-items: center;
+    height:80%;
+    width: 80%;
+  
+}
+.button--paper {
+    background:linear-gradient( var(--color-paper));
+  
+}
+.button--scissors {
+    background:linear-gradient( var(--color-scissors));
+  
+}
+.button--rock {
+    background:linear-gradient(var(--color-rock));
+  
+}
+.options .button--paper {
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+.options .button--scissors {
+ 
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+}
+.options .button--rock {
+
+  bottom: 0;
+  right: 50%;
+  transform: translate(50%, 50%);
+}
+
+.fight{
+    color:var(--color-main);
+    display:flex;
+}
+
+.pick__container--player,
+.pick__container--ai{
+  width:75%;
+}
+
+
+.pick{
+    align-items: flex-start;
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width:50%;
+}
+.pick__title{
+    display:block;
+    padding-bottom: 32px;
+    text-align:center;
+    width:100%;
+}
+
+.pick__placeholder{
+    aspect-ratio: 1/1;
+    background: rgba(0,0,0,0.15);
+    border-radius:50%;
+    width:50%;
+}
+.hidden{
+    display:none;
+}
+
+
