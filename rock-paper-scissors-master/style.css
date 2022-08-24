@@ -52,16 +52,31 @@ h1 span {
 }
 main {
   max-width: 650px;
+  min-height: 70vh;
   margin: 0 auto;
   padding: 120px 0;
+  position: relative;
 }
+
+section{
+  top:50%;
+  left:50%;
+  position: absolute;
+  transform:translate(-50%,-50%);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
 .options {
   aspect-ratio: 313/278;
   background-image: url("./images/bg-triangle.svg");
   background-size: cover;
-  position: relative;
+  /* position: relative; */
   margin: 0 auto;
   width: 50%;
+}
+.options.slide-left{
+  opacity:0; 
+  transform: translate(-200%,-50%);
 }
 .options .button {
   position: absolute;
@@ -126,6 +141,13 @@ main {
 .fight{
     color:var(--color-main);
     display:flex;
+    opacity:0;
+    transform:translate(-200%,-50%);
+}
+
+.figh.slide-left{
+  opacity:1;
+  transform:translate(-50%,-50%);
 }
 
 .pick__container--player,

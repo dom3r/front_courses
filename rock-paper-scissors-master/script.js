@@ -58,11 +58,17 @@ const pickByAI = () => {
 };
 
 const hideOptions = () => {
-  document.querySelector(".options").classList.add("hidden");
+  const optionsElement = document.querySelector(".options");
+  optionsElement.classList.add("slide-left");
+  setTimeout(() => {
+    optionsElement.classList.add("hidden");
+  }, 500);
 };
 
 const showFight = () => {
-  document.querySelector(".fight").classList.remove("hidden");
+  const fightElement = document.querySelector(".fight");
+  fightElement.classList.add("slide-left");
+  fightElement.classList.remove("hidden");
   createElementPickedByPlayer();
   createElementPickedByAI();
   showResult();
@@ -73,16 +79,16 @@ const showResult = () => {
     console.log("draw");
   } else if (winningResultsMap[state.playerPick].includes(state.AIPick)) {
     localStorage.setItem(playerWinsLSKey, state.playerWins + 1);
-    state={
+    state = {
       ...state,
-      playerWins: state.playerWins + 1
+      playerWins: state.playerWins + 1,
     };
     console.log("player wins");
   } else {
     localStorage.setItem(playerWinsLSKey, state.AIWins + 1);
-    state={
+    state = {
       ...state,
-      AIWins: state.AIWins + 1
+      AIWins: state.AIWins + 1,
     };
     console.log("AI wins");
   }

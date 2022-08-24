@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Function scope example</title>
+  </head>
+<body>
+
+
+  <script>
+const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada']
+const para = document.createElement('p');
+const section = document.createElement('section');
+
+// Add your code here
+function chooseName(){
+    let rands = Math.floor(Math.random()*(names.length))
+    console.log(rands);
+    let choice = names[rands];
+    para.textContent = choice;
+    console.log(names[rands]);
+}
+
+
+// Don't edit the code below here!
+
+section.innerHTML = ' ';
+chooseName();
+
+section.appendChild(para);
+  </script>
+</body>
+</html>
