@@ -17,16 +17,17 @@ const findListing = (id) => {
 // PUT /listings/id - update the specific listing matching the id
 // DELETE listings/id - delete the listing matching the id from the list
 
-app.get("/", (req, res) => {
-  console.log(req.headers);
-  console.log(req.host);
-  console.log(req.path);
-  console.log(req.method);
-  console.log(req.httpVersion);
-  res.send("Hello World!");
-});
+// app.get("/", (req, res) => {
+//   console.log(req.headers);
+//   console.log(req.host);
+//   console.log(req.path);
+//   console.log(req.method);
+//   console.log(req.httpVersion);
+//   res.send("Hello World!");
+// });
 
 app.get("/listings", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8000");
   res.send(data);
 });
 
